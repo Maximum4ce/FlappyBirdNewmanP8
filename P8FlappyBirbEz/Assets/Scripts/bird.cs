@@ -5,13 +5,14 @@ using UnityEngine;
 public class bird : MonoBehaviour
 {
     public float upForce = 200f;
-
+    private Animator anim;
     private bool isDead = false;
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,11 +24,13 @@ public class bird : MonoBehaviour
             {
                 rb2d.velocity = Vector2.zero;
                 rb2d.AddForce(new Vector2(0, upForce));
+                anim.SetTrigger("Flap");
             }
         }
         void OnCollisionEnter2D()
         {
             isDead = true;
+            anim.SetTrigger("Death");
         }
     }
 }
