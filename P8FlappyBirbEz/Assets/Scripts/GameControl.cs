@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
+    private int score = 0;
+    public Text scoreText;
     public GameObject gameOverText;
     public bool gameOver = false;
     public static GameControl instance;
@@ -29,6 +33,15 @@ public class GameControl : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+    public void BirdScored()
+    {
+        if (gameOver)
+        {
+            return;
+        }
+        score++;
+        scoreText.text = "Score: " + score.ToString();
     }
     public void BirdDied ()
     {
