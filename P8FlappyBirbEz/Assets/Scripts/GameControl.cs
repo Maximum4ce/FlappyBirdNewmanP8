@@ -4,11 +4,11 @@ using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 public class GameControl : MonoBehaviour
 {
     private int score = 0;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     public GameObject gameOverText;
     public bool gameOver = false;
     public static GameControl instance;
